@@ -1,86 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\RestaurantManagement\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|D:\\RestaurantManagement\\presentationlayer\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\forms\\frmhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\forms\\frmhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5B4E876-164B-4CB0-82C9-4CA8465D791B}|BusinessLayer\\BusinessLayer.csproj|d:\\restaurantmanagement\\businesslayer\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5B4E876-164B-4CB0-82C9-4CA8465D791B}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmHome.cs [Design]",
-              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmHome.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Forms\\frmHome.cs",
-              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmHome.cs [Design]",
-              "RelativeToolTip": "PresentationLayer\\Forms\\frmHome.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T16:30:39.919Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\RestaurantManagement\\BusinessLayer\\Services\\AccountService.cs",
-              "RelativeDocumentMoniker": "BusinessLayer\\Services\\AccountService.cs",
-              "ToolTip": "D:\\RestaurantManagement\\BusinessLayer\\Services\\AccountService.cs",
-              "RelativeToolTip": "BusinessLayer\\Services\\AccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T16:00:13.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmMain.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Forms\\frmMain.cs",
-              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmMain.cs",
-              "RelativeToolTip": "PresentationLayer\\Forms\\frmMain.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAuwCsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T19:05:41.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmMain.cs [Design]",
-              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmMain.cs",
-              "RelativeDocumentMoniker": "PresentationLayer\\Forms\\frmMain.cs",
-              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmMain.cs [Design]",
-              "RelativeToolTip": "PresentationLayer\\Forms\\frmMain.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T18:56:01.198Z",
-              "EditorCaption": " [Design]"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
