@@ -42,7 +42,7 @@ namespace PresentationLayer.Forms
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            AddControls(new frmHome());
+            AddControls(new frmPromotionView());
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
