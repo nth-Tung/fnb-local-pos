@@ -1,12 +1,10 @@
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.csproj.AssemblyReference.cache
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmCategoryAdd.resources
-D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.SampleAdd.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmHome.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmLogin.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmMain.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Properties.Resources.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.frmCategoryView.resources
-D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.SampleView.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.csproj.GenerateResource.cache
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.csproj.CoreCompileInputs.cache
 D:\RestaurantManagement\PresentationLayer\bin\Debug\PresentationLayer.exe.config
@@ -32,3 +30,7 @@ D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmS
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.frmStaffView.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmProductAdd.resources
 D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.frmProductView.resources
+D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Adds.frmCustomerAdd.resources
+D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Adds.frmReservationAdd.resources
+D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.frmCustomerView.resources
+D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.frmReservationView.resources

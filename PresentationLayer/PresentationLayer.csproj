@@ -68,11 +68,23 @@
     <Compile Include="Adds\frmCategoryAdd.Designer.cs">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adds\frmCustomerAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adds\frmCustomerAdd.Designer.cs">
+      <DependentUpon>frmCustomerAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Adds\frmProductAdd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Adds\frmProductAdd.Designer.cs">
       <DependentUpon>frmProductAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adds\frmReservationAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adds\frmReservationAdd.Designer.cs">
+      <DependentUpon>frmReservationAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Adds\frmStaffAdd.cs">
       <SubType>Form</SubType>
@@ -85,12 +97,6 @@
     </Compile>
     <Compile Include="Adds\frmTableAdd.Designer.cs">
       <DependentUpon>frmTableAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Adds\SampleAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Adds\SampleAdd.Designer.cs">
-      <DependentUpon>SampleAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmHome.cs">
       <SubType>Form</SubType>
@@ -123,11 +129,23 @@
     <Compile Include="Views\frmCategoryView.Designer.cs">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmCustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCustomerView.Designer.cs">
+      <DependentUpon>frmCustomerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmProductView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\frmProductView.Designer.cs">
       <DependentUpon>frmProductView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmReservationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmReservationView.Designer.cs">
+      <DependentUpon>frmReservationView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmStaffView.cs">
       <SubType>Form</SubType>
@@ -141,26 +159,23 @@
     <Compile Include="Views\frmTableView.Designer.cs">
       <DependentUpon>frmTableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SampleView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\SampleView.Designer.cs">
-      <DependentUpon>SampleView.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Adds\frmCategoryAdd.resx">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Adds\frmCustomerAdd.resx">
+      <DependentUpon>frmCustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Adds\frmProductAdd.resx">
       <DependentUpon>frmProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adds\frmReservationAdd.resx">
+      <DependentUpon>frmReservationAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adds\frmStaffAdd.resx">
       <DependentUpon>frmStaffAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adds\frmTableAdd.resx">
       <DependentUpon>frmTableAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Adds\SampleAdd.resx">
-      <DependentUpon>SampleAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
@@ -184,17 +199,20 @@
     <EmbeddedResource Include="Views\frmCategoryView.resx">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCustomerView.resx">
+      <DependentUpon>frmCustomerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmProductView.resx">
       <DependentUpon>frmProductView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmReservationView.resx">
+      <DependentUpon>frmReservationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmStaffView.resx">
       <DependentUpon>frmStaffView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmTableView.resx">
       <DependentUpon>frmTableView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SampleView.resx">
-      <DependentUpon>SampleView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -64,5 +64,15 @@ namespace PresentationLayer.Forms
         {
             AddControls(new frmProductView());
         }
+
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmReservationView());
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmCustomerView());
+        }
     }
 }
