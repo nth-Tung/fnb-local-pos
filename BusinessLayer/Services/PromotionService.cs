@@ -110,5 +110,25 @@ namespace BusinessLayer.Services
                 IsActive = p.IsActive
             }).ToList();
         }
+
+        public List<PromotionDTO> loadPromotion()
+        {
+            try
+            {
+                var promotions = _context.GetAll().Select(p =>
+                new PromotionDTO
+                {
+                    PromotionID = p.PromotionID,
+                    PromotionName = p.PromotionName,
+                    Description = p.Description,
+                    DiscountPercentage = p.DiscountPercentage,
+                    StartDate = p.StartDate,
+                    EndDate = p.EndDate,
+                    IsActive = p.IsActive
+                }).ToList();
+                return promotions;
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

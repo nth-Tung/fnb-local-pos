@@ -121,5 +121,23 @@ namespace BusinessLayer.Services
             var matchedCustomer = _context.GetById(keyword);
             return matchedCustomer.Phone;
         }
+
+        public CustomerDTO CheckCustomerByPhone(string phone)
+        {
+            
+            try
+            {
+                var customer = _context.GetAll().FirstOrDefault(p => p.Phone == phone);
+                return new CustomerDTO
+                {
+                    FirstName = customer.FirstName
+                };
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine("Object null: " + ex.Message);
+                throw; // hoặc xử lý theo logic riêng
+            }
+        }
     }
 }
