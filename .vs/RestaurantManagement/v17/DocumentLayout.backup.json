@@ -9,6 +9,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\forms\\frmpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\forms\\frmpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\views\\frmproductview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\views\\frmproductview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\view\\ucproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\view\\ucproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\views\\frmproductview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\views\\frmproductview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5B4E876-164B-4CB0-82C9-4CA8465D791B}|BusinessLayer\\BusinessLayer.csproj|d:\\restaurantmanagement\\businesslayer\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5B4E876-164B-4CB0-82C9-4CA8465D791B}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\adds\\frmproductadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\adds\\frmproductadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|d:\\restaurantmanagement\\presentationlayer\\adds\\frmproductadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FE415D34-FD0D-435C-BAEC-D38AE97434FD}|PresentationLayer\\PresentationLayer.csproj|solutionrelative:presentationlayer\\adds\\frmproductadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,19 +42,94 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\RestaurantManagement\\BusinessLayer\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Services\\ProductService.cs",
+              "ToolTip": "D:\\RestaurantManagement\\BusinessLayer\\Services\\ProductService.cs",
+              "RelativeToolTip": "BusinessLayer\\Services\\ProductService.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAIwIsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:39:50.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmProductView.cs",
+              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Views\\frmProductView.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Views\\frmProductView.cs",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Views\\frmProductView.cs",
+              "RelativeToolTip": "PresentationLayer\\Views\\frmProductView.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDwAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:28:36.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmProductView.cs [Design]",
+              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Views\\frmProductView.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Views\\frmProductView.cs",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Views\\frmProductView.cs [Design]",
+              "RelativeToolTip": "PresentationLayer\\Views\\frmProductView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:28:34.574Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmProductAdd.cs [Design]",
+              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Adds\\frmProductAdd.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Adds\\frmProductAdd.cs",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Adds\\frmProductAdd.cs [Design]",
+              "RelativeToolTip": "PresentationLayer\\Adds\\frmProductAdd.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:27:44.09Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmProductAdd.cs",
+              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Adds\\frmProductAdd.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\Adds\\frmProductAdd.cs",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Adds\\frmProductAdd.cs",
+              "RelativeToolTip": "PresentationLayer\\Adds\\frmProductAdd.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA8wFgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:23:17.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ucProduct.cs [Design]",
+              "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\view\\ucProduct.cs",
+              "RelativeDocumentMoniker": "PresentationLayer\\view\\ucProduct.cs",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\view\\ucProduct.cs [Design]",
+              "RelativeToolTip": "PresentationLayer\\view\\ucProduct.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:19:21.282Z",
+              "EditorCaption": " [Design]"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "frmPOS.cs",
               "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmPOS.cs",
               "RelativeDocumentMoniker": "PresentationLayer\\Forms\\frmPOS.cs",
-              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmPOS.cs",
-              "RelativeToolTip": "PresentationLayer\\Forms\\frmPOS.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAIwIQAAAABAAAAAAAAAA==",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmPOS.cs*",
+              "RelativeToolTip": "PresentationLayer\\Forms\\frmPOS.cs*",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAuwKUAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T16:40:45.374Z",
+              "WhenOpened": "2025-05-09T17:15:02.342Z",
               "EditorCaption": ""
             },
             {
@@ -39,10 +138,10 @@
               "Title": "frmPOS.cs [Design]",
               "DocumentMoniker": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmPOS.cs",
               "RelativeDocumentMoniker": "PresentationLayer\\Forms\\frmPOS.cs",
-              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmPOS.cs [Design]",
-              "RelativeToolTip": "PresentationLayer\\Forms\\frmPOS.cs [Design]",
+              "ToolTip": "D:\\RestaurantManagement\\PresentationLayer\\Forms\\frmPOS.cs [Design]*",
+              "RelativeToolTip": "PresentationLayer\\Forms\\frmPOS.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T16:40:44.166Z",
+              "WhenOpened": "2025-05-09T17:15:00.143Z",
               "EditorCaption": " [Design]"
             }
           ]
