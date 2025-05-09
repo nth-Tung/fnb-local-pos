@@ -7,13 +7,13 @@ namespace DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class updatecategory : IMigrationMetadata
+    public sealed partial class createtable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatecategory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createtable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202505091630400_update category"; }
+            get { return "202505091827105_create table"; }
         }
         
         string IMigrationMetadata.Source

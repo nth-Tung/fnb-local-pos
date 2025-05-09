@@ -14,6 +14,7 @@
                         CategoryID = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(nullable: false, maxLength: 100),
                         Description = c.String(),
+                        Image = c.String(),
                     })
                 .PrimaryKey(t => t.CategoryID);
             
