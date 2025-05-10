@@ -8,9 +8,8 @@ namespace RestaurantManagement.DAL.Models
     {
         [Key]
         public int CategoryID { get; set; }
-        [Required, StringLength(100), Display(Name = "Tên danh mục")]
+        [Required, StringLength(100)]
         public string CategoryName { get; set; }
-        [Display(Name = "Mô tả chi tiết")]
         public string Description { get; set; }
         public string Image { get; set; }
 
