@@ -46,3 +46,5 @@ D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Forms.frmT
 D:\RestaurantManagement\bin\Debug\PresentationLayer.exe.config
 D:\RestaurantManagement\bin\Debug\PresentationLayer.exe
 D:\RestaurantManagement\bin\Debug\PresentationLayer.pdb
+D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Views.frmAccontView.resources
+D:\RestaurantManagement\PresentationLayer\obj\Debug\PresentationLayer.Adds.frmAccountAdd.resources

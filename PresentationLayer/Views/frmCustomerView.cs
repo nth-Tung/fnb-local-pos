@@ -67,7 +67,7 @@ namespace PresentationLayer.Views
             }
             if (dgvCustomer.CurrentCell.OwningColumn.Name == "dgvDel")
             {
-                int customerId = Convert.ToInt32(dgvCustomer.CurrentRow.Cells["CustomerID"].Value);
+                int customerId = Convert.ToInt32(dgvCustomer.CurrentRow.Cells["dgvId"].Value);
                 string customerName = dgvCustomer.CurrentRow.Cells["FirstName"].Value.ToString();
                 DialogResult result = MessageBox.Show($"Bạn đồng ý xóa khách hàng {customerName} với mã khách hàng {customerId}?", "Xóa khách hàng", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)

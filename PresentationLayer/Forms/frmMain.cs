@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Services;
+﻿using BusinessLayer.DTOs;
+using BusinessLayer.Services;
 using PresentationLayer.Views;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,45 @@ namespace PresentationLayer.Forms
         private void FrmMain_Load(object sender, EventArgs e)
         {
             lblUser.Text = AccountService.USER;
+
+            var role = AccountService.ROLE;
+
+            // Ẩn toàn bộ nút trước
+            btnPromotion.Visible = false;
+            btnStaff.Visible = false;
+            btnTables.Visible = false;
+            btnCategories.Visible = false;
+            btnProducts.Visible = false;
+            btnReservation.Visible = false;
+            btnPOS.Visible = false;
+            btnCustomer.Visible = false;
+            btnAccount.Visible = false;
+            
+
+            // Hiện nút theo quyền
+            if (role == StaffRoleDTO.Manager)
+            {
+                btnPromotion.Visible = true;
+                btnStaff.Visible = true;
+                btnTables.Visible = true;
+                btnCategories.Visible = true;
+                btnProducts.Visible = true;
+                btnReservation.Visible = true;
+                btnPOS.Visible = true;
+                btnCustomer.Visible = true;
+                btnAccount.Visible = true;
+            }
+            else if (role == StaffRoleDTO.Cashier)
+            {
+                btnReservation.Visible = true;
+                btnPOS.Visible = true;
+                btnCustomer.Visible = true;
+                btnTables.Visible = true;
+            }
+            else if (role == StaffRoleDTO.Waiter)
+            {
+                btnPOS.Visible = true;
+            }
         }
 
         private void BtnHome_Click(object sender, EventArgs e)
@@ -84,6 +124,11 @@ namespace PresentationLayer.Forms
         private void BtnPromotion_Click(object sender, EventArgs e)
         {
             AddControls(new frmPromotionView());
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmAccontView());
         }
     }
 }
