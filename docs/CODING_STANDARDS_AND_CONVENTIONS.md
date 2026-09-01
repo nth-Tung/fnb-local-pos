@@ -137,6 +137,11 @@ fnb-local-pos/
 public OrderSummaryDto CalculateOrderSummary(List<CartItemDto> cartItems, decimal discountValue, bool isPercentDiscount)
 ```
 
+### 4.3. Chuẩn thiết kế In ấn Hóa đơn (Printing Subsystem Patterns):
+- **Builder Pattern (Fluent API)**: Sử dụng `TicketBuilder` (`POS.BLL/Helpers/TicketBuilder.cs`) để đóng gói các mã lệnh byte ESC/POS thô (`ESC @`, `ESC a`, `GS !`, `GS V`...). Tuyệt đối không hardcode các con số byte lệnh rải rác trong code.
+- **Template Method Pattern**: Sử dụng `BaseInvoiceTemplate` (`POS.BLL/Templates/BaseInvoiceTemplate.cs`) để cố định khung sườn (Header ➡️ MetaInfo ➡️ Body ➡️ Footer ➡️ CutPaper) và cho phép các lớp con (`CounterSaleInvoice`, `RestaurantInvoice`,...) tùy biến giao diện mà không sửa đổi lõi xử lý.
+- **Tuân thủ nguyên lý OCP (Open/Closed Principle)**: Khi cần thêm mẫu in mới (như in cho bàn, in tem bếp, in báo cáo ca), chỉ cần tạo Class mới kế thừa `BaseInvoiceTemplate`.
+
 ---
 
 ## 5. QUY TẮC TẦNG TRUY CẬP DỮ LIỆU (DATA ACCESS LAYER - POS.DAL)

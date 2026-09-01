@@ -43,10 +43,13 @@
   <ItemGroup>
     <Compile Include="DTOs\CartItemDto.cs" />
     <Compile Include="DTOs\OrderSummaryDto.cs" />
+    <Compile Include="Helpers\TicketBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PrintService.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Templates\BaseInvoiceTemplate.cs" />
+    <Compile Include="Templates\CounterSaleInvoice.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POS.DAL\POS.DAL.csproj">

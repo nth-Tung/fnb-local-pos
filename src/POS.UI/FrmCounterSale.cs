@@ -28,8 +28,7 @@ namespace POS.UI
         // Lưu thông tin hóa đơn vừa thanh toán gần nhất để in lại bill
         private string _lastOrderNumber = string.Empty;
         private decimal _lastOrderTotal = 0;
-        private decimal _lastRawTotal = 0;
-        private decimal _lastDiscountAmount = 0;
+        private OrderSummaryDto _lastSummary = null;
         private string _lastPaymentMethod = string.Empty;
         private DateTime _lastOrderTime = DateTime.MinValue;
         private List<CartItemDto> _lastCartItems = new List<CartItemDto>();
@@ -452,22 +451,19 @@ namespace POS.UI
                     // Lưu lại thông tin để in lại bill
                     _lastOrderNumber = generatedOrderNo;
                     _lastOrderTotal = finalTotal;
-                    _lastRawTotal = summary.RawTotal;
-                    _lastDiscountAmount = summary.DiscountAmount;
+                    _lastSummary = summary;
                     _lastPaymentMethod = paymentMethod == "CASH" ? "Tiền mặt" : "Chuyển khoản QR";
                     _lastOrderTime = DateTime.Now;
                     _lastCartItems = new List<CartItemDto>(cartItems);
                     _lastOrderItemsText = cartItems.Select(x => $"{x.ProductName,-22} x{x.Quantity} {(x.LineTotal):N0}đ").ToList();
 
-                    // Gửi lệnh in hóa đơn ESC/POS trực tiếp tới máy in nhiệt
+                    // Gửi lệnh in hóa đơn ESC/POS trực tiếp tới máy in nhiệt qua Template Method Pattern
                     _printService.PrintOrderInvoice(
                         generatedOrderNo,
                         _currentCashier,
                         paymentMethod == "CASH" ? "Tien mat" : "Chuyen khoan QR",
                         cartItems,
-                        summary.RawTotal,
-                        summary.DiscountAmount,
-                        summary.FinalTotal
+                        summary
                     );
 
                     MessageBox.Show(
@@ -532,16 +528,14 @@ namespace POS.UI
             }
 
             // Gửi lại lệnh in ESC/POS nếu có danh sách món
-            if (_lastCartItems != null && _lastCartItems.Count > 0)
+            if (_lastCartItems != null && _lastCartItems.Count > 0 && _lastSummary != null)
             {
                 _printService.PrintOrderInvoice(
                     _lastOrderNumber,
                     _currentCashier,
                     _lastPaymentMethod,
                     _lastCartItems,
-                    _lastRawTotal,
-                    _lastDiscountAmount,
-                    _lastOrderTotal
+                    _lastSummary
                 );
             }
 
