@@ -33,6 +33,9 @@ namespace POS.UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTopBar = new System.Windows.Forms.Panel();
+            this.lblTableBadge = new System.Windows.Forms.Label();
+            this.btnSaveTable = new System.Windows.Forms.Button();
+            this.btnBackToFloor = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblClock = new System.Windows.Forms.Label();
             this.btnBackToAdmin = new System.Windows.Forms.Button();
@@ -89,6 +92,9 @@ namespace POS.UI
             // pnlTopBar
             // 
             this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.pnlTopBar.Controls.Add(this.btnBackToFloor);
+            this.pnlTopBar.Controls.Add(this.btnSaveTable);
+            this.pnlTopBar.Controls.Add(this.lblTableBadge);
             this.pnlTopBar.Controls.Add(this.btnLogout);
             this.pnlTopBar.Controls.Add(this.lblClock);
             this.pnlTopBar.Controls.Add(this.btnBackToAdmin);
@@ -130,16 +136,65 @@ namespace POS.UI
             this.lblClock.TabIndex = 3;
             this.lblClock.Text = "⏰ 00:00:00 - 00/00/00";
             // 
+            // lblTableBadge
+            // 
+            this.lblTableBadge.AutoSize = true;
+            this.lblTableBadge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(165)))), ((int)(((byte)(233)))));
+            this.lblTableBadge.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTableBadge.ForeColor = System.Drawing.Color.White;
+            this.lblTableBadge.Location = new System.Drawing.Point(400, 15);
+            this.lblTableBadge.Name = "lblTableBadge";
+            this.lblTableBadge.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.lblTableBadge.Size = new System.Drawing.Size(92, 25);
+            this.lblTableBadge.TabIndex = 6;
+            this.lblTableBadge.Text = "📍 Bàn: ...";
+            this.lblTableBadge.Visible = false;
+            // 
+            // btnSaveTable
+            // 
+            this.btnSaveTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
+            this.btnSaveTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveTable.FlatAppearance.BorderSize = 0;
+            this.btnSaveTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveTable.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnSaveTable.ForeColor = System.Drawing.Color.White;
+            this.btnSaveTable.Location = new System.Drawing.Point(595, 10);
+            this.btnSaveTable.Name = "btnSaveTable";
+            this.btnSaveTable.Size = new System.Drawing.Size(145, 35);
+            this.btnSaveTable.TabIndex = 7;
+            this.btnSaveTable.Text = "💾 LƯU BÀN (F3)";
+            this.btnSaveTable.UseVisualStyleBackColor = false;
+            this.btnSaveTable.Visible = false;
+            this.btnSaveTable.Click += new System.EventHandler(this.btnSaveTable_Click);
+            // 
+            // btnBackToFloor
+            // 
+            this.btnBackToFloor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackToFloor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(165)))), ((int)(((byte)(233)))));
+            this.btnBackToFloor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToFloor.FlatAppearance.BorderSize = 0;
+            this.btnBackToFloor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackToFloor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnBackToFloor.ForeColor = System.Drawing.Color.White;
+            this.btnBackToFloor.Location = new System.Drawing.Point(746, 10);
+            this.btnBackToFloor.Name = "btnBackToFloor";
+            this.btnBackToFloor.Size = new System.Drawing.Size(155, 35);
+            this.btnBackToFloor.TabIndex = 8;
+            this.btnBackToFloor.Text = "🍽️ SƠ ĐỒ BÀN";
+            this.btnBackToFloor.UseVisualStyleBackColor = false;
+            this.btnBackToFloor.Click += new System.EventHandler(this.btnBackToFloor_Click);
+            // 
             // btnBackToAdmin
             // 
             this.btnBackToAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBackToAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(165)))), ((int)(((byte)(233)))));
+            this.btnBackToAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
             this.btnBackToAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBackToAdmin.FlatAppearance.BorderSize = 0;
             this.btnBackToAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackToAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnBackToAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnBackToAdmin.Location = new System.Drawing.Point(746, 9);
+            this.btnBackToAdmin.Location = new System.Drawing.Point(746, 10);
             this.btnBackToAdmin.Name = "btnBackToAdmin";
             this.btnBackToAdmin.Size = new System.Drawing.Size(155, 35);
             this.btnBackToAdmin.TabIndex = 5;
@@ -727,5 +782,8 @@ namespace POS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn colQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.Label lblTableBadge;
+        private System.Windows.Forms.Button btnSaveTable;
+        private System.Windows.Forms.Button btnBackToFloor;
     }
 }

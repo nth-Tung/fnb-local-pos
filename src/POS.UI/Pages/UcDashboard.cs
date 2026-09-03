@@ -38,7 +38,7 @@ namespace POS.UI.Pages
 
         private void btnQuickTables_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chức năng 'Quản lý Sơ đồ Bàn & Khu vực' đang được xây dựng ở Giai đoạn tiếp theo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            OnRequestNavigate?.Invoke("Tables");
         }
 
         private void btnQuickInventory_Click(object sender, EventArgs e)

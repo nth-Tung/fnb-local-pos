@@ -26,6 +26,10 @@ namespace POS.UI.Forms
             {
                 btnNavMenu_Click(btnNavMenu, EventArgs.Empty);
             }
+            else if (_initialPage == "Tables")
+            {
+                btnNavTables_Click(btnNavTables, EventArgs.Empty);
+            }
             else
             {
                 btnNavDashboard_Click(btnNavDashboard, EventArgs.Empty);
@@ -103,6 +107,7 @@ namespace POS.UI.Forms
                 uc.OnRequestNavigate = (pageKey) =>
                 {
                     if (pageKey == "Menu") btnNavMenu_Click(btnNavMenu, EventArgs.Empty);
+                    if (pageKey == "Tables") btnNavTables_Click(btnNavTables, EventArgs.Empty);
                 };
                 return uc;
             }, btnNavDashboard);
@@ -115,7 +120,7 @@ namespace POS.UI.Forms
 
         private void btnNavTables_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Mô-đun 'Quản lý Sơ đồ Bàn & Khu vực' đang được xây dựng ở Giai đoạn tiếp theo!", "Khu vực Bàn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            NavigateTo(() => new UcTableManagement(), btnNavTables);
         }
 
         private void btnNavInventory_Click(object sender, EventArgs e)

@@ -48,9 +48,9 @@ namespace POS.UI.Forms
             // Kiểm tra thông tin đăng nhập mẫu
             if (username.Equals("cashier", StringComparison.OrdinalIgnoreCase) && password == "123456")
             {
-                // Thu ngân -> Nhảy thẳng vào màn hình bán hàng POS
+                // Thu ngân -> Vào màn hình Sơ đồ bàn (có nút Bán Mang Đi nhanh)
                 UserSession.Current.Login(1, "cashier", "Nguyễn Văn A (Thu ngân)", UserRole.Cashier);
-                NavigationManager.ShowPosScreen(fromAdmin: false);
+                NavigationManager.ShowTableFloor();
             }
             else if (username.Equals("admin", StringComparison.OrdinalIgnoreCase) && password == "123456")
             {

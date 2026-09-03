@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\FrmAreaEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmAreaEditDialog.Designer.cs">
+      <DependentUpon>FrmAreaEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\FrmCashPaymentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,11 +75,23 @@
     <Compile Include="Dialogs\FrmDiscountDialog.Designer.cs">
       <DependentUpon>FrmDiscountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FrmMergeTableDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmMergeTableDialog.Designer.cs">
+      <DependentUpon>FrmMergeTableDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\FrmModifierEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\FrmModifierEditDialog.Designer.cs">
       <DependentUpon>FrmModifierEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FrmMoveTableDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmMoveTableDialog.Designer.cs">
+      <DependentUpon>FrmMoveTableDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\FrmProductEditDialog.cs">
       <SubType>Form</SubType>
@@ -87,6 +105,12 @@
     <Compile Include="Dialogs\FrmQrPaymentDialog.Designer.cs">
       <DependentUpon>FrmQrPaymentDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FrmTableEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmTableEditDialog.Designer.cs">
+      <DependentUpon>FrmTableEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAdminShell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +122,12 @@
     </Compile>
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTableFloor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTableFloor.Designer.cs">
+      <DependentUpon>FrmTableFloor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCounterSale.cs">
       <SubType>Form</SubType>
@@ -120,6 +150,12 @@
     </Compile>
     <Compile Include="Pages\UcMenuManagement.Designer.cs">
       <DependentUpon>UcMenuManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UcTableManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UcTableManagement.Designer.cs">
+      <DependentUpon>UcTableManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

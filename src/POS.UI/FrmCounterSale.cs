@@ -17,6 +17,7 @@ namespace POS.UI
         private readonly ProductService _productService = new ProductService();
         private readonly OrderService _orderService = new OrderService();
         private readonly PrintService _printService = new PrintService();
+        private readonly TableService _tableService = new TableService();
 
         private DataTable _dtProducts;
         private DataTable _dtCategories;
@@ -28,6 +29,8 @@ namespace POS.UI
         private bool _isPercentDiscount = false;
         private bool _fromAdmin = false;
 
+        public TableDto CurrentTable { get; private set; }
+
         // Lưu thông tin hóa đơn vừa thanh toán gần nhất để in lại bill
         private string _lastOrderNumber = string.Empty;
         private decimal _lastOrderTotal = 0;
@@ -37,12 +40,17 @@ namespace POS.UI
         private List<CartItemDto> _lastCartItems = new List<CartItemDto>();
         private List<string> _lastOrderItemsText = new List<string>();
 
-        public FrmCounterSale() : this(false)
+        public FrmCounterSale() : this(null, false)
         {
         }
 
-        public FrmCounterSale(bool fromAdmin)
+        public FrmCounterSale(bool fromAdmin) : this(null, fromAdmin)
         {
+        }
+
+        public FrmCounterSale(TableDto table, bool fromAdmin = false)
+        {
+            CurrentTable = table;
             _fromAdmin = fromAdmin;
             InitializeComponent();
         }
@@ -59,8 +67,33 @@ namespace POS.UI
                 lblCashier.Text = $"👤 {_currentCashier}";
                 lblClock.Text = "⏰ " + DateTime.Now.ToString("HH:mm:ss - dd/MM/yyyy");
 
-                // Nút quay lại Quản trị: chỉ hiển thị khi người dùng có quyền Admin
-                btnBackToAdmin.Visible = (UserSession.Current.Role == UserRole.Admin);
+                // Thiết lập trạng thái theo Bàn hoặc Bán mang đi
+                if (CurrentTable != null)
+                {
+                    lblTableBadge.Visible = true;
+                    lblTableBadge.Text = $"📍 {CurrentTable.Name} ({CurrentTable.AreaName})";
+                    btnSaveTable.Visible = true;
+                    btnBackToFloor.Visible = true;
+                    btnBackToAdmin.Visible = false;
+
+                    // Nếu bàn đang có khách, nạp lại đơn hàng mở
+                    if (CurrentTable.CurrentOrderId.HasValue)
+                    {
+                        var existingItems = _tableService.GetTableCartItems(CurrentTable.CurrentOrderId.Value);
+                        dgvCart.Rows.Clear();
+                        foreach (var item in existingItems)
+                        {
+                            dgvCart.Rows.Add(item.ProductId, item.ItemKey, item.ProductName, item.Quantity, item.UnitPrice, item.LineTotal);
+                        }
+                    }
+                }
+                else
+                {
+                    lblTableBadge.Visible = false;
+                    btnSaveTable.Visible = false;
+                    btnBackToFloor.Visible = true;
+                    btnBackToAdmin.Visible = _fromAdmin && (UserSession.Current.Role == UserRole.Admin);
+                }
 
                 // Sinh trước mã hóa đơn hiển thị
                 RefreshNextOrderNumber();
@@ -69,7 +102,7 @@ namespace POS.UI
                 LoadCategories();
                 LoadProducts();
 
-                // Cập nhật lại giỏ hàng
+                // Cập nhật lại tổng tiền giỏ hàng
                 UpdateCartSummary();
             }
             catch (Exception ex)
@@ -463,6 +496,12 @@ namespace POS.UI
 
                 if (success)
                 {
+                    // Nếu đơn thuộc về bàn, giải phóng bàn và chốt hóa đơn
+                    if (CurrentTable != null && CurrentTable.CurrentOrderId.HasValue)
+                    {
+                        _tableService.SettleTable(CurrentTable.Id, CurrentTable.CurrentOrderId.Value, paymentMethod, finalTotal, summary.DiscountAmount, out _);
+                    }
+
                     // Lưu lại thông tin để in lại bill
                     _lastOrderNumber = generatedOrderNo;
                     _lastOrderTotal = finalTotal;
@@ -493,7 +532,14 @@ namespace POS.UI
                         MessageBoxIcon.Information
                     );
 
-                    // Làm mới giỏ hàng và cập nhật mã hóa đơn mới
+                    // Nếu là đơn bán tại bàn -> Trở về sơ đồ bàn
+                    if (CurrentTable != null)
+                    {
+                        NavigationManager.ShowTableFloor();
+                        return;
+                    }
+
+                    // Làm mới giỏ hàng và cập nhật mã hóa đơn mới (Bán mang đi)
                     dgvCart.Rows.Clear();
                     _discountValue = 0;
                     _isPercentDiscount = false;
@@ -505,6 +551,50 @@ namespace POS.UI
             {
                 MessageBox.Show("Lỗi trong quá trình thanh toán: " + ex.Message, "Lỗi thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSaveTable_Click(object sender, EventArgs e)
+        {
+            if (CurrentTable == null) return;
+
+            var cartItems = GetCartItems();
+            if (cartItems.Count == 0)
+            {
+                MessageBox.Show("Giỏ hàng đang trống! Vui lòng chọn món trước khi lưu vào bàn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var summary = _orderService.CalculateOrderSummary(cartItems, _discountValue, _isPercentDiscount);
+
+            if (CurrentTable.Status == "EMPTY" || !CurrentTable.CurrentOrderId.HasValue)
+            {
+                if (_tableService.OpenTableWithOrder(CurrentTable.Id, _currentCashier, cartItems, summary.DiscountAmount, out long newOrderId, out string error))
+                {
+                    MessageBox.Show($"Đã lưu đơn hàng vào [{CurrentTable.Name}] thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NavigationManager.ShowTableFloor();
+                }
+                else
+                {
+                    MessageBox.Show(error, "Lỗi lưu bàn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if (_tableService.UpdateTableOrder(CurrentTable.Id, CurrentTable.CurrentOrderId.Value, cartItems, summary.DiscountAmount, out string error))
+                {
+                    MessageBox.Show($"Đã cập nhật đơn hàng của [{CurrentTable.Name}] thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NavigationManager.ShowTableFloor();
+                }
+                else
+                {
+                    MessageBox.Show(error, "Lỗi cập nhật bàn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnBackToFloor_Click(object sender, EventArgs e)
+        {
+            NavigationManager.ShowTableFloor();
         }
 
         private void btnCancelOrder_Click(object sender, EventArgs e)

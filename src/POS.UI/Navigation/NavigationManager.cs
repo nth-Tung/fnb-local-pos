@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Windows.Forms;
+using POS.BLL.DTOs;
 using POS.UI.Forms;
 using POS.UI.Session;
 
@@ -74,13 +75,24 @@ namespace POS.UI.Navigation
         }
 
         /// <summary>
-        /// Mở màn hình Bán hàng tại quầy (POS)
+        /// Mở màn hình Sơ đồ bàn & Khu vực (Dining Table Floor)
         /// </summary>
-        public static void ShowPosScreen(bool fromAdmin = false)
+        public static void ShowTableFloor()
         {
             ExecuteOnUIThread(() =>
             {
-                var posForm = new FrmCounterSale(fromAdmin);
+                SwitchForm(new FrmTableFloor());
+            });
+        }
+
+        /// <summary>
+        /// Mở màn hình Bán hàng tại quầy (POS), tùy chọn gắn với Bàn
+        /// </summary>
+        public static void ShowPosScreen(bool fromAdmin = false, TableDto table = null)
+        {
+            ExecuteOnUIThread(() =>
+            {
+                var posForm = new FrmCounterSale(table, fromAdmin);
 
                 if (fromAdmin && _activeAdminShell != null)
                 {
@@ -95,7 +107,7 @@ namespace POS.UI.Navigation
                 }
                 else
                 {
-                    // Thu ngân đăng nhập: Chuyển hẳn sang POS
+                    // Chuyển hẳn sang POS
                     SwitchForm(posForm);
                 }
             });
