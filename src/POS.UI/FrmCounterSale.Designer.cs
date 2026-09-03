@@ -29,12 +29,13 @@ namespace POS.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTopBar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblClock = new System.Windows.Forms.Label();
+            this.btnBackToAdmin = new System.Windows.Forms.Button();
             this.lblOrderNumber = new System.Windows.Forms.Label();
             this.lblCashier = new System.Windows.Forms.Label();
             this.lblBrand = new System.Windows.Forms.Label();
@@ -90,6 +91,7 @@ namespace POS.UI
             this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.pnlTopBar.Controls.Add(this.btnLogout);
             this.pnlTopBar.Controls.Add(this.lblClock);
+            this.pnlTopBar.Controls.Add(this.btnBackToAdmin);
             this.pnlTopBar.Controls.Add(this.lblOrderNumber);
             this.pnlTopBar.Controls.Add(this.lblCashier);
             this.pnlTopBar.Controls.Add(this.lblBrand);
@@ -112,7 +114,7 @@ namespace POS.UI
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(142, 35);
             this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "🚪 Thoát (Alt+F4)";
+            this.btnLogout.Text = "🚪 Đăng Xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -128,6 +130,23 @@ namespace POS.UI
             this.lblClock.TabIndex = 3;
             this.lblClock.Text = "⏰ 00:00:00 - 00/00/00";
             // 
+            // btnBackToAdmin
+            // 
+            this.btnBackToAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackToAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(165)))), ((int)(((byte)(233)))));
+            this.btnBackToAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToAdmin.FlatAppearance.BorderSize = 0;
+            this.btnBackToAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackToAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnBackToAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnBackToAdmin.Location = new System.Drawing.Point(746, 9);
+            this.btnBackToAdmin.Name = "btnBackToAdmin";
+            this.btnBackToAdmin.Size = new System.Drawing.Size(155, 35);
+            this.btnBackToAdmin.TabIndex = 5;
+            this.btnBackToAdmin.Text = "⬅️ Về Quản Trị";
+            this.btnBackToAdmin.UseVisualStyleBackColor = false;
+            this.btnBackToAdmin.Click += new System.EventHandler(this.btnBackToAdmin_Click);
+            // 
             // lblOrderNumber
             // 
             this.lblOrderNumber.AutoSize = true;
@@ -137,9 +156,9 @@ namespace POS.UI
             this.lblOrderNumber.Location = new System.Drawing.Point(470, 15);
             this.lblOrderNumber.Name = "lblOrderNumber";
             this.lblOrderNumber.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
-            this.lblOrderNumber.Size = new System.Drawing.Size(131, 25);
+            this.lblOrderNumber.Size = new System.Drawing.Size(96, 25);
             this.lblOrderNumber.TabIndex = 2;
-            this.lblOrderNumber.Text = "📋 Đơn: HD-001";
+            this.lblOrderNumber.Text = "📋 HD-001";
             // 
             // lblCashier
             // 
@@ -148,9 +167,9 @@ namespace POS.UI
             this.lblCashier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.lblCashier.Location = new System.Drawing.Point(235, 18);
             this.lblCashier.Name = "lblCashier";
-            this.lblCashier.Size = new System.Drawing.Size(193, 19);
+            this.lblCashier.Size = new System.Drawing.Size(122, 19);
             this.lblCashier.TabIndex = 1;
-            this.lblCashier.Text = "👤 Nhân viên: Nguyễn Văn A";
+            this.lblCashier.Text = "👤 Nguyễn Văn A";
             // 
             // lblBrand
             // 
@@ -300,15 +319,15 @@ namespace POS.UI
             this.dgvCart.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCart.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvCart.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle43.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProductId,
@@ -317,14 +336,14 @@ namespace POS.UI
             this.colQty,
             this.colUnitPrice,
             this.colTotal});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(105)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCart.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(105)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCart.DefaultCellStyle = dataGridViewCellStyle44;
             this.dgvCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCart.EnableHeadersVisualStyles = false;
             this.dgvCart.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
@@ -333,8 +352,8 @@ namespace POS.UI
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle45;
             this.dgvCart.RowTemplate.Height = 36;
             this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCart.Size = new System.Drawing.Size(404, 386);
@@ -672,6 +691,7 @@ namespace POS.UI
         private System.Windows.Forms.Label lblOrderNumber;
         private System.Windows.Forms.Label lblClock;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnBackToAdmin;
         private System.Windows.Forms.Panel pnlBottomActions;
         private System.Windows.Forms.Panel pnlPaymentActions;
         private System.Windows.Forms.Button btnCash;

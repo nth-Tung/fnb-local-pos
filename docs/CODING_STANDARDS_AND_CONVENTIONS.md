@@ -17,6 +17,7 @@
 7. [Quy Ước Đặt Tên (Naming Conventions)](#7-quy-ước-đặt-tên-naming-conventions)
 8. [Quy Tắc Xử Lý Ngoại Lệ (Exception Handling)](#8-quy-tắc-xử-lý-ngoại-lệ-exception-handling)
 9. [Nguyên Tắc Clean Code & Single Responsibility (SRP)](#9-nguyên-tắc-clean-code--single-responsibility-srp)
+10. [Quy Chuẩn Điều Hướng UI & An Toàn Đa Luồng (UI Navigation & Thread Affinity)](#10-quy-chuẩn-điều-hướng-ui--an-toàn-đa-luồng-ui-navigation--thread-affinity)
 
 ---
 
@@ -220,3 +221,35 @@ using (var cmd = new SQLiteCommand(sql, conn))
 - **Độ dài hàm**: Cố gắng giữ mỗi hàm dưới **40 dòng code**. Nếu hàm quá dài, hãy bóc tách thành các hàm phụ trợ (`private`).
 - **DRY (Don't Repeat Yourself)**: Không copy-paste code logic hoặc giao diện qua lại giữa các Form. Hãy tạo hàm tiện ích hoặc Form Dialog dùng chung.
 - **Comment có ý nghĩa**: Viết ghi chú giải thích **TẠI SAO (Why)** làm như vậy đối với các logic nghiệp vụ phức tạp, thay vì chỉ giải thích cái mã đang làm (What).
+
+---
+
+## 10. QUY CHUẨN ĐIỀU HƯỚNG UI & AN TOÀN ĐA LUỒNG (UI NAVIGATION & THREAD AFFINITY)
+
+### 1. Kiến Trúc Điều Hướng Hai Khung Hình (Dual-Shell Architecture)
+- **Front-Office (POS Shell - `FrmCounterSale`)**: Giao diện full màn hình cảm ứng, tối giản, tối ưu tốc độ bán hàng tại quầy của thu ngân.
+- **Back-Office (Admin Shell - `FrmAdminShell`)**: Giao diện dashboard máy tính để bàn với Sidebar danh mục quản trị, chứa các `UserControl` nghiệp vụ (Thực đơn, Bàn, Kho, Báo cáo).
+- **Điều phối tập trung (`NavigationManager`)**: Mọi hoạt động mở Form, chuyển Form, đăng xuất đều phải thông qua `NavigationManager`, không được gọi `new Form().Show()` tùy tiện trong sự kiện người dùng.
+
+### 2. Nguyên Tắc Open/Closed (SOLID) & Hợp Đồng `INavigatableForm`
+- Tuyệt đối không viết rẽ nhánh phụ thuộc cứng (`if (oldForm is FrmA) ... else if (oldForm is FrmB)`) bên trong bộ điều phối `NavigationManager`.
+- Mọi Form cần dọn dẹp hoặc can thiệp trước khi đóng (tránh đệ quy `OnFormClosing`, hủy timer ngầm) bắt buộc phải implement interface [`INavigatableForm`](file:///c:/Projects/fnb-local-pos/src/POS.UI/Navigation/INavigatableForm.cs):
+  ```csharp
+  public interface INavigatableForm
+  {
+      void PrepareForClose();
+  }
+  ```
+
+### 3. Vòng Đời Trang Động (Transient Page Lifecycle) Chống Rò Rỉ RAM
+- Các `UserControl` được nhúng trong `FrmAdminShell` bắt buộc phải triển khai interface [`IViewPage`](file:///c:/Projects/fnb-local-pos/src/POS.UI/Pages/IViewPage.cs).
+- Khi chuyển đổi tab, Shell tự động gọi:
+  1. `oldControl.OnPageDeactivated()`: Gỡ bỏ event listeners, hủy DataBinding.
+  2. `pnlMainContent.Controls.Clear()`.
+  3. `oldControl.Dispose()`: Giải phóng toàn bộ GDI Handles và bộ nhớ RAM.
+  4. Tạo mới `newPageFactory()`, gán `Dock = Fill` và gọi `newControl.OnPageActivated()`.
+- **Tuyệt đối không cache vĩnh viễn** các UserControl nặng trong Dictionary tĩnh.
+
+### 4. An Toàn Đa Luồng (Thread Affinity & SynchronizationContext)
+- Mọi phương thức điều hướng trong `NavigationManager` phải được bọc qua `ExecuteOnUIThread(Action action)`.
+- Khi các tác vụ nền (Inactivity Auto-Logout Timer, Background Sync, Webhook thanh toán QR) gọi lệnh điều hướng hoặc đăng xuất, lệnh sẽ được tự động dispatch an toàn về UI Thread thông qua `_uiContext.Post(...)`, triệt tiêu hoàn toàn ngoại lệ `InvalidOperationException: Cross-thread operation not valid`.

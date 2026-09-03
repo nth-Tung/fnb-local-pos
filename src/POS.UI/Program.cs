@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using POS.DAL;
+using POS.UI.Navigation;
 
 namespace POS.UI
 {
@@ -25,7 +26,7 @@ namespace POS.UI
                 MessageBox.Show("Lỗi khi khởi tạo CSDL SQLite: " + ex.Message, "Lỗi cơ sở dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            Application.Run(new FrmCounterSale());
+            Application.Run(new PosApplicationContext());
         }
     }
 }

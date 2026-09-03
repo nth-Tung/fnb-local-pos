@@ -7,10 +7,12 @@ using System.Windows.Forms;
 using POS.BLL.DTOs;
 using POS.BLL.Services;
 using POS.UI.Dialogs;
+using POS.UI.Navigation;
+using POS.UI.Session;
 
 namespace POS.UI
 {
-    public partial class FrmCounterSale : Form
+    public partial class FrmCounterSale : Form, INavigatableForm
     {
         private readonly ProductService _productService = new ProductService();
         private readonly OrderService _orderService = new OrderService();
@@ -24,6 +26,7 @@ namespace POS.UI
         private string _currentCashier = "Nguyễn Văn A";
         private decimal _discountValue = 0;
         private bool _isPercentDiscount = false;
+        private bool _fromAdmin = false;
 
         // Lưu thông tin hóa đơn vừa thanh toán gần nhất để in lại bill
         private string _lastOrderNumber = string.Empty;
@@ -34,8 +37,13 @@ namespace POS.UI
         private List<CartItemDto> _lastCartItems = new List<CartItemDto>();
         private List<string> _lastOrderItemsText = new List<string>();
 
-        public FrmCounterSale()
+        public FrmCounterSale() : this(false)
         {
+        }
+
+        public FrmCounterSale(bool fromAdmin)
+        {
+            _fromAdmin = fromAdmin;
             InitializeComponent();
         }
 
@@ -43,9 +51,16 @@ namespace POS.UI
         {
             try
             {
-                // Cập nhật đồng hồ và nhân viên
-                lblCashier.Text = $"👤 Nhân viên: {_currentCashier}";
+                // Cập nhật nhân viên theo Session đăng nhập
+                if (UserSession.Current.IsLoggedIn)
+                {
+                    _currentCashier = UserSession.Current.FullName;
+                }
+                lblCashier.Text = $"👤 {_currentCashier}";
                 lblClock.Text = "⏰ " + DateTime.Now.ToString("HH:mm:ss - dd/MM/yyyy");
+
+                // Nút quay lại Quản trị: chỉ hiển thị khi người dùng có quyền Admin
+                btnBackToAdmin.Visible = (UserSession.Current.Role == UserRole.Admin);
 
                 // Sinh trước mã hóa đơn hiển thị
                 RefreshNextOrderNumber();
@@ -70,11 +85,11 @@ namespace POS.UI
             try
             {
                 string nextOrderNo = _orderService.GetNextOrderNumber();
-                lblOrderNumber.Text = $"📋 Đơn: {nextOrderNo}";
+                lblOrderNumber.Text = $"📋 {nextOrderNo}";
             }
             catch
             {
-                lblOrderNumber.Text = $"📋 Đơn: HD-{DateTime.Now:yyyyMMdd}-001";
+                lblOrderNumber.Text = $"📋 HD-{DateTime.Now:yyyyMMdd}-001";
             }
         }
 
@@ -419,7 +434,7 @@ namespace POS.UI
             // 2. Xử lý hiển thị hộp thoại xác nhận thanh toán theo từng hình thức (Sử dụng Dialog Forms tái sử dụng)
             if (paymentMethod == "BANK_TRANSFER")
             {
-                string orderNo = lblOrderNumber.Text.Replace("📋 Đơn: ", "").Trim();
+                string orderNo = lblOrderNumber.Text.Replace("📋 ", "").Trim();
                 using (var dlg = new FrmQrPaymentDialog(summary.FinalTotal, orderNo))
                 {
                     if (dlg.ShowDialog(this) != DialogResult.OK) return;
@@ -560,11 +575,7 @@ namespace POS.UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Bạn có muốn đăng xuất hoặc đóng ứng dụng POS?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            NavigationManager.Logout(this);
         }
 
         private void clockTimer_Tick(object sender, EventArgs e)
@@ -599,6 +610,14 @@ namespace POS.UI
                 btnReprintBill.PerformClick();
                 e.Handled = true;
             }
+            else if (e.KeyCode == Keys.F6)
+            {
+                if (btnBackToAdmin.Visible)
+                {
+                    btnBackToAdmin.PerformClick();
+                    e.Handled = true;
+                }
+            }
             else if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Oemplus)
             {
                 btnIncreaseQty.PerformClick();
@@ -608,6 +627,47 @@ namespace POS.UI
             {
                 btnDecreaseQty.PerformClick();
                 e.Handled = true;
+            }
+        }
+
+        private bool _isClosingFromNavigation = false;
+
+        /// <summary>
+        /// Chuẩn bị đóng Form từ NavigationManager để tránh đệ quy OnFormClosing
+        /// </summary>
+        public void PrepareForClose()
+        {
+            _isClosingFromNavigation = true;
+            clockTimer?.Stop();
+        }
+
+        private void btnBackToAdmin_Click(object sender, EventArgs e)
+        {
+            _isClosingFromNavigation = true;
+            NavigationManager.ReturnToAdmin(this);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            // Nếu đang trong luồng điều hướng của NavigationManager thì không gọi tiếp
+            if (_isClosingFromNavigation)
+            {
+                return;
+            }
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                _isClosingFromNavigation = true;
+                if (_fromAdmin && UserSession.Current.Role == UserRole.Admin)
+                {
+                    NavigationManager.ReturnToAdmin(this);
+                }
+                else
+                {
+                    NavigationManager.ExitApp();
+                }
             }
         }
 

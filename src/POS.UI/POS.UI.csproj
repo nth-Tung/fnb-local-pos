@@ -57,11 +57,29 @@
     <Compile Include="Dialogs\FrmCashPaymentDialog.Designer.cs">
       <DependentUpon>FrmCashPaymentDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FrmCategoryEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmCategoryEditDialog.Designer.cs">
+      <DependentUpon>FrmCategoryEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\FrmDiscountDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\FrmDiscountDialog.Designer.cs">
       <DependentUpon>FrmDiscountDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FrmModifierEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmModifierEditDialog.Designer.cs">
+      <DependentUpon>FrmModifierEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FrmProductEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrmProductEditDialog.Designer.cs">
+      <DependentUpon>FrmProductEditDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\FrmQrPaymentDialog.cs">
       <SubType>Form</SubType>
@@ -69,25 +87,75 @@
     <Compile Include="Dialogs\FrmQrPaymentDialog.Designer.cs">
       <DependentUpon>FrmQrPaymentDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAdminShell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAdminShell.Designer.cs">
+      <DependentUpon>FrmAdminShell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCounterSale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCounterSale.Designer.cs">
       <DependentUpon>FrmCounterSale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\INavigatableForm.cs" />
+    <Compile Include="Navigation\NavigationManager.cs" />
+    <Compile Include="Navigation\PosApplicationContext.cs" />
+    <Compile Include="Pages\IViewPage.cs" />
+    <Compile Include="Pages\UcDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UcDashboard.Designer.cs">
+      <DependentUpon>UcDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UcMenuManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UcMenuManagement.Designer.cs">
+      <DependentUpon>UcMenuManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\UserSession.cs" />
     <EmbeddedResource Include="Dialogs\FrmCashPaymentDialog.resx">
       <DependentUpon>FrmCashPaymentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FrmCategoryEditDialog.resx">
+      <DependentUpon>FrmCategoryEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FrmDiscountDialog.resx">
       <DependentUpon>FrmDiscountDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FrmModifierEditDialog.resx">
+      <DependentUpon>FrmModifierEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FrmProductEditDialog.resx">
+      <DependentUpon>FrmProductEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FrmQrPaymentDialog.resx">
       <DependentUpon>FrmQrPaymentDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAdminShell.resx">
+      <DependentUpon>FrmAdminShell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCounterSale.resx">
       <DependentUpon>FrmCounterSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UcDashboard.resx">
+      <DependentUpon>UcDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UcMenuManagement.resx">
+      <DependentUpon>UcMenuManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -50,19 +50,44 @@ namespace POS.DAL.Helpers
             {
                 if (OpenPrinter(printerName.Normalize(), out hPrinter, IntPtr.Zero))
                 {
-                    if (StartDocPrinter(hPrinter, 1, di))
+                    try
                     {
-                        if (StartPagePrinter(hPrinter))
+                        if (StartDocPrinter(hPrinter, 1, di))
                         {
-                            IntPtr pBytes = Marshal.AllocHGlobal(bytes.Length);
-                            Marshal.Copy(bytes, 0, pBytes, bytes.Length);
-                            success = WritePrinter(hPrinter, pBytes, bytes.Length, out int dwWritten);
-                            Marshal.FreeHGlobal(pBytes);
-                            EndPagePrinter(hPrinter);
+                            try
+                            {
+                                if (StartPagePrinter(hPrinter))
+                                {
+                                    try
+                                    {
+                                        IntPtr pBytes = Marshal.AllocHGlobal(bytes.Length);
+                                        try
+                                        {
+                                            Marshal.Copy(bytes, 0, pBytes, bytes.Length);
+                                            success = WritePrinter(hPrinter, pBytes, bytes.Length, out int dwWritten);
+                                        }
+                                        finally
+                                        {
+                                            Marshal.FreeHGlobal(pBytes);
+                                        }
+                                    }
+                                    finally
+                                    {
+                                        EndPagePrinter(hPrinter);
+                                    }
+                                }
+                            }
+                            finally
+                            {
+                                EndDocPrinter(hPrinter);
+                            }
                         }
-                        EndDocPrinter(hPrinter);
                     }
-                    ClosePrinter(hPrinter);
+                    finally
+                    {
+                        ClosePrinter(hPrinter);
+                        hPrinter = IntPtr.Zero;
+                    }
                 }
             }
             catch
